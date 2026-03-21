@@ -37,19 +37,19 @@ export const TelemetryPanel = () => {
         >
             <div className="flex items-center gap-3 mb-6 text-studio border-b border-studio/5 pb-4">
                 <span className="w-1.5 h-1.5 rounded-full bg-studio shadow-[0_0_15px_rgba(197,160,89,0.5)]" />
-                <span className="tracking-[0.6em] font-medium text-[9px] uppercase">Service Protocol</span>
+                <span className="tracking-[0.6em] font-medium text-[9px] uppercase">Protocolos de Servicio</span>
             </div>
             <div className="space-y-3 tracking-wider uppercase">
                 <div className="flex justify-between gap-12 group">
-                    <span className="opacity-40 font-light tracking-[0.2em]">LATENCY:</span>
+                    <span className="opacity-40 font-light tracking-[0.2em]">LATENCIA:</span>
                     <span className="text-white/80 group-hover:text-studio transition-colors font-medium tracking-tight italic">{metrics.resp}ms</span>
                 </div>
                 <div className="flex justify-between gap-12 group">
-                    <span className="opacity-40 font-light tracking-[0.2em]">UPTIME:</span>
+                    <span className="opacity-40 font-light tracking-[0.2em]">DISPONIBILIDAD:</span>
                     <span className="text-white/80 group-hover:text-studio transition-colors font-medium tracking-tight italic">99.9%</span>
                 </div>
                 <div className="flex justify-between gap-12 group">
-                    <span className="opacity-40 font-light tracking-[0.2em]">SYNC:</span>
+                    <span className="opacity-40 font-light tracking-[0.2em]">SINCRONÍA:</span>
                     <span className="text-white/80 group-hover:text-studio transition-colors font-medium tracking-tight italic">{metrics.ping}ms</span>
                 </div>
                 <div className="flex justify-between gap-12 group">

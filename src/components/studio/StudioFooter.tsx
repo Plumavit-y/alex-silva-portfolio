@@ -34,12 +34,12 @@ export const StudioFooter = () => {
                 <div className="space-y-6">
                     <h4 className="text-white font-bold text-xs uppercase tracking-[0.2em]">Sectores</h4>
                     <div className="flex flex-col gap-3 text-white/40 text-xs tracking-widest uppercase">
-                        <a href="#" className="hover:text-white transition-colors">Web Development</a>
-                        <a href="#" className="hover:text-white transition-colors">AI Orchestration</a>
-                        <a href="#" className="hover:text-white transition-colors">API Systems</a>
-                        <a href="#" className="hover:text-white transition-colors">Server Ops</a>
-                        <a href="#" className="hover:text-white transition-colors">MVP Build</a>
-                        <a href="#" className="hover:text-white transition-colors">Tech Consulting</a>
+                        <a href="#" className="hover:text-white transition-colors">Desarrollo Web</a>
+                        <a href="#" className="hover:text-white transition-colors">Orquestación IA</a>
+                        <a href="#" className="hover:text-white transition-colors">Sistemas API</a>
+                        <a href="#" className="hover:text-white transition-colors">Infraestructura</a>
+                        <a href="#" className="hover:text-white transition-colors">Modelos MVP</a>
+                        <a href="#" className="hover:text-white transition-colors">Asesoría Técnica</a>
                     </div>
                 </div>
 
@@ -58,8 +58,8 @@ export const StudioFooter = () => {
                     <h4 className="text-white font-bold text-xs uppercase tracking-[0.2em]">Legal</h4>
                     <div className="flex flex-col gap-3 text-white/40 text-[10px] tracking-widest uppercase">
                         <a href="#" className="hover:text-white transition-colors">Términos de Servicio</a>
-                        <a href="#" className="hover:text-white transition-colors">Política de Privacidad</a>
-                        <a href="#" className="hover:text-white transition-colors">Cookies</a>
+                        <a href="#" className="hover:text-white transition-colors">Privacidad</a>
+                        <a href="#" className="hover:text-white transition-colors">Configuración de Protocolos</a>
                     </div>
                 </div>
 
@@ -71,7 +71,7 @@ export const StudioFooter = () => {
                 </p>
                 <div className="flex items-center gap-4 px-4 py-1.5 rounded-none bg-studio/[0.03] border border-studio/20 text-[9px] uppercase tracking-[0.4em] text-studio">
                     <span className="w-1 h-1 rounded-full bg-studio animate-pulse" />
-                    Bespoke Partner Select
+                    Selección Privada de Socios
                 </div>
             </div>
         </footer>

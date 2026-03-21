@@ -72,7 +72,7 @@ export const TelemetryWidget = ({ className = "" }: { className?: string }) => {
         return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
     };
 
-    if (pathname?.startsWith('/estudio')) return null;
+    if (pathname?.startsWith('/estudio') || pathname?.startsWith('/links')) return null;
 
     return (
         <m.div

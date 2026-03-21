@@ -116,11 +116,11 @@ export const ConfiguratorModal = ({ isOpen, onClose, initialServiceId }: Configu
                                                     onClick={() => setServiceId(s.id)}
                                                     className={`p-6 rounded-xl border cursor-pointer transition-all ${serviceId === s.id ? 'bg-studio/10 border-studio' : 'bg-white/5 border-white/5 hover:border-white/20'}`}
                                                 >
-                                                    <div className="flex items-center gap-4 mb-2">
-                                                        <div className={serviceId === s.id ? 'text-studio' : 'text-white/40'}>{s.icon}</div>
-                                                        <h3 className={`font-bold uppercase text-sm ${serviceId === s.id ? 'text-white' : 'text-white/60'}`}>{s.title}</h3>
+                                                    <div className="flex items-center gap-4 mb-3">
+                                                        <div className={serviceId === s.id ? 'text-studio' : 'text-white/20'}>{s.icon}</div>
+                                                        <h3 className={`font-light italic text-sm ${serviceId === s.id ? 'text-white' : 'text-white/40'}`}>{s.title}</h3>
                                                     </div>
-                                                    <p className="text-xs text-white/40 font-mono tracking-wide">{s.time} base</p>
+                                                    <p className="text-[10px] text-white/20 font-mono tracking-[0.2em]">Ejecución estimada: {s.time}</p>
                                                 </div>
                                         ))}
                                     </div>
@@ -157,13 +157,17 @@ export const ConfiguratorModal = ({ isOpen, onClose, initialServiceId }: Configu
                                     <h2 className="text-2xl font-light italic tracking-tight mb-2 text-white/90">03 // ADN Tecnológico</h2>
                                     <p className="text-white/30 mb-10 font-light text-xs tracking-wide">Protocolos preferidos para la implementación.</p>
 
-                                    <div className="space-y-4">
-                                        <div className="p-6 rounded-xl border border-studio bg-studio/10 cursor-pointer">
-                                            <div className="flex items-center gap-4 mb-2">
-                                                <div className="w-4 h-4 rounded-full border-4 border-studio bg-black" />
-                                                <h3 className="font-bold text-white uppercase text-sm">Alineación Standard ({activeService?.stack.join(', ')})</h3>
+                                    <div className="space-y-6">
+                                        <div className="p-8 rounded-none border border-studio bg-studio/[0.03] cursor-pointer group transition-all duration-700">
+                                            <div className="flex items-center gap-6 mb-4">
+                                                <div className="w-5 h-5 rounded-full border border-studio flex items-center justify-center p-1">
+                                                    <div className="w-full h-full rounded-full bg-studio" />
+                                                </div>
+                                                <h3 className="font-light italic text-base text-white">Configuración Recomendada</h3>
                                             </div>
-                                            <p className="text-xs text-white/50 font-mono ml-8">Confío en tu criterio como ingeniero.</p>
+                                            <p className="text-xs text-white/30 font-light leading-relaxed ml-11">
+                                                Permítame seleccionar el stack óptimo (<span>{activeService?.stack.join(' & ')}</span>) para garantizar la integridad y el rendimiento de su solución.
+                                            </p>
                                         </div>
                                     </div>
                                     <div className="mt-12 flex justify-between">
@@ -178,18 +182,27 @@ export const ConfiguratorModal = ({ isOpen, onClose, initialServiceId }: Configu
                                     <h2 className="text-2xl font-light italic tracking-tight mb-2 text-white/90">04 // Cronograma Privado</h2>
                                     <p className="text-white/30 mb-10 font-light text-xs tracking-wide">Defina la urgencia del despliegue en producción.</p>
 
-                                    <div className="space-y-4 font-mono uppercase tracking-widest text-xs">
-                                        <div onClick={() => setUrgency(1)} className={`p-6 rounded-xl border cursor-pointer flex justify-between items-center ${urgency === 1 ? 'bg-studio/10 border-studio text-white' : 'bg-white/5 border-white/10 text-white/50 hover:border-white/30'}`}>
-                                            <div>Prioridad Base [x1.0]</div>
-                                            <div>{activeService?.time}</div>
+                                    <div className="space-y-4 font-mono uppercase tracking-[0.2em] text-[10px]">
+                                        <div onClick={() => setUrgency(1)} className={`p-8 rounded-none border cursor-pointer flex justify-between items-center transition-all duration-700 ${urgency === 1 ? 'bg-studio/[0.03] border-studio text-white' : 'bg-transparent border-white/5 text-white/20 hover:border-white/20'}`}>
+                                            <div className="flex flex-col gap-1">
+                                                <span className="text-white font-medium">Prioridad Estándar</span>
+                                                <span className="text-[8px] opacity-40">Ritmo de desarrollo orgánico</span>
+                                            </div>
+                                            <div className="font-light italic">{activeService?.time}</div>
                                         </div>
-                                        <div onClick={() => setUrgency(1.2)} className={`p-6 rounded-xl border cursor-pointer flex justify-between items-center ${urgency === 1.2 ? 'bg-studio/10 border-studio text-white' : 'bg-white/5 border-white/10 text-white/50 hover:border-white/30'}`}>
-                                            <div>Alta Prioridad [x1.2]</div>
-                                            <div>Skip Line</div>
+                                        <div onClick={() => setUrgency(1.2)} className={`p-8 rounded-none border cursor-pointer flex justify-between items-center transition-all duration-700 ${urgency === 1.2 ? 'bg-studio/[0.03] border-studio text-white' : 'bg-transparent border-white/5 text-white/20 hover:border-white/20'}`}>
+                                            <div className="flex flex-col gap-1">
+                                                <span className="text-white font-medium">Protocolo Preferencial</span>
+                                                <span className="text-[8px] opacity-40">Atención prioritaria en calendario</span>
+                                            </div>
+                                            <div className="text-studio font-light italic">Fast Track</div>
                                         </div>
-                                        <div onClick={() => setUrgency(1.5)} className={`p-6 rounded-xl border cursor-pointer flex justify-between items-center ${urgency === 1.5 ? 'bg-studio/10 border-studio text-white' : 'bg-white/5 border-white/10 text-white/50 hover:border-white/30'}`}>
-                                            <div>Operación Express [x1.5]</div>
-                                            <div className="text-red-400">Entrega Crítica</div>
+                                        <div onClick={() => setUrgency(1.5)} className={`p-8 rounded-none border cursor-pointer flex justify-between items-center transition-all duration-700 ${urgency === 1.5 ? 'bg-studio/[0.03] border-studio text-white' : 'bg-transparent border-white/5 text-white/20 hover:border-white/20'}`}>
+                                            <div className="flex flex-col gap-1">
+                                                <span className="text-white font-medium">Despliegue Crítico</span>
+                                                <span className="text-[8px] opacity-40">Máxima urgencia y recursos</span>
+                                            </div>
+                                            <div className="text-red-400 font-light italic">Inmediato</div>
                                         </div>
                                     </div>
 
@@ -205,36 +218,36 @@ export const ConfiguratorModal = ({ isOpen, onClose, initialServiceId }: Configu
                                     <h2 className="text-2xl font-light italic tracking-tight mb-2 text-white/90">05-06 // Perfil del Partner</h2>
                                     <p className="text-white/30 mb-10 font-light text-xs tracking-wide">Documentación de identidad y objetivos.</p>
 
-                                    <div className="space-y-6">
+                                    <div className="space-y-10">
                                         <input 
                                             type="text" 
                                             value={form.projectName}
                                             onChange={(e) => setForm({...form, projectName: e.target.value})}
-                                            placeholder="NOMBRE DEL PROYECTO" 
-                                            className="w-full bg-transparent border-b border-white/20 py-4 outline-none focus:border-studio transition-colors text-white font-mono text-sm uppercase tracking-widest placeholder:text-white/20" 
+                                            placeholder="TÍTULO DEL PROYECTO O VISIÓN" 
+                                            className="w-full bg-transparent border-b border-white/5 py-6 outline-none focus:border-studio/40 transition-all duration-700 text-white font-mono text-[10px] uppercase tracking-[0.4em] placeholder:text-white/10" 
                                         />
                                         <textarea 
                                             rows={3} 
                                             value={form.objectives}
                                             onChange={(e) => setForm({...form, objectives: e.target.value})}
-                                            placeholder="OBJETIVOS CLAVE / PROBLEMA" 
-                                            className="w-full bg-transparent border-b border-white/20 py-4 outline-none focus:border-studio transition-colors text-white font-mono text-sm uppercase tracking-widest placeholder:text-white/20 resize-none" 
+                                            placeholder="DESCRIBA LOS OBJETIVOS DE ALTO NIVEL" 
+                                            className="w-full bg-transparent border-b border-white/5 py-6 outline-none focus:border-studio/40 transition-all duration-700 text-white font-mono text-[10px] uppercase tracking-[0.4em] placeholder:text-white/10 resize-none" 
                                         />
 
-                                        <div className="grid grid-cols-2 gap-6 pt-4">
+                                        <div className="grid grid-cols-2 gap-12 pt-4">
                                             <input 
                                                 type="text" 
                                                 value={form.userName}
                                                 onChange={(e) => setForm({...form, userName: e.target.value})}
                                                 placeholder="NOMBRE COMPLETO" 
-                                                className="w-full bg-transparent border-b border-white/20 py-4 outline-none focus:border-studio transition-colors text-white font-mono text-sm uppercase tracking-widest placeholder:text-white/20" 
+                                                className="w-full bg-transparent border-b border-white/5 py-6 outline-none focus:border-studio/40 transition-all duration-700 text-white font-mono text-[10px] uppercase tracking-[0.4em] placeholder:text-white/10" 
                                             />
                                             <input 
                                                 type="email" 
                                                 value={form.userEmail}
                                                 onChange={(e) => setForm({...form, userEmail: e.target.value})}
-                                                placeholder="CORREO DIRECTO (CEO/CTO)" 
-                                                className="w-full bg-transparent border-b border-white/20 py-4 outline-none focus:border-studio transition-colors text-white font-mono text-sm uppercase tracking-widest placeholder:text-white/20" 
+                                                placeholder="CORREO ELECTRÓNICO PROFESIONAL" 
+                                                className="w-full bg-transparent border-b border-white/5 py-6 outline-none focus:border-studio/40 transition-all duration-700 text-white font-mono text-[10px] uppercase tracking-[0.4em] placeholder:text-white/10" 
                                             />
                                         </div>
                                     </div>
@@ -251,10 +264,13 @@ export const ConfiguratorModal = ({ isOpen, onClose, initialServiceId }: Configu
                                     <h2 className="text-2xl font-light italic tracking-tight mb-2 text-studio">07 // Protocolo Preparado</h2>
                                     <p className="text-white/30 mb-10 font-light text-xs tracking-wide">Documento validado para su transmisión privada.</p>
 
-                                    <div className="bg-studio/5 border border-studio/20 p-8 rounded-xl font-mono space-y-4 mb-12">
-                                        <div className="text-xs text-studio tracking-widest">RESUMEN DE CARGA</div>
-                                        <div className="text-xl text-white">VECTOR: {activeService?.title}</div>
-                                        <div className="text-sm text-white/50">TIMELINE: {urgency > 1 ? 'ESCALADO VERTICAL (URGENTE)' : 'BASE'}</div>
+                                    <div className="bg-studio/[0.02] border border-studio/10 p-10 rounded-none font-sans space-y-6 mb-12">
+                                        <div className="text-[9px] text-studio/60 tracking-[0.5em] font-mono uppercase mb-4">Resumen de Requerimientos</div>
+                                        <div className="text-2xl text-white/90 font-light italic tracking-tight underline underline-offset-8 decoration-studio/20">Servicio: {activeService?.title}</div>
+                                        <div className="text-xs text-white/30 font-light tracking-wide leading-relaxed">
+                                            Prioridad seleccionada: <span className="text-white/60">{urgency > 1 ? 'Fast Track / Despliegue Crítico' : 'Desarrollo Orgánico'}</span>. <br />
+                                            Este documento será procesado de forma estrictamente privada.
+                                        </div>
                                     </div>
 
                                     <div className="flex flex-col sm:flex-row gap-4">
@@ -275,22 +291,22 @@ export const ConfiguratorModal = ({ isOpen, onClose, initialServiceId }: Configu
 
                 {/* SIDEBAR */}
                 <div className="lg:col-span-4 bg-[#111111] p-8 border-l border-white/5 flex flex-col font-mono text-xs uppercase tracking-widest relative">
-                    <div className="absolute top-0 right-0 w-full h-[1px] bg-gradient-to-r from-transparent via-studio to-transparent opacity-50" />
+                    <div className="absolute top-0 right-0 w-full h-[1px] bg-gradient-to-r from-transparent via-studio/30 to-transparent" />
 
-                    <h3 className="text-white/30 mb-8 border-b border-white/10 pb-4">ESTIMACIÓN EN TIEMPO REAL</h3>
+                    <h3 className="text-studio/40 mb-10 border-b border-studio/5 pb-6 font-mono text-[9px] tracking-[0.4em]">DETALLE DE LA PROPUESTA</h3>
 
                     <div className="space-y-8 flex-grow">
                         <div>
-                            <div className="text-white/40 mb-2">VECTOR ELEGIDO</div>
-                            <div className={serviceId ? "text-white" : "text-white/20"}>{activeService?.title || 'SELECCIONANDO...'}</div>
+                            <div className="text-white/20 mb-3 font-mono text-[8px] tracking-[0.4em]">SERVICIO SELECCIONADO</div>
+                            <div className={`text-sm font-light italic tracking-tight ${serviceId ? "text-white/80" : "text-white/10"}`}>{activeService?.title || 'Pendiente...'}</div>
                         </div>
                         <div>
-                            <div className="text-white/40 mb-2">SPRINT ESTIMADO</div>
-                            <div className={serviceId ? "text-white" : "text-white/20"}>{activeService?.time || '---'}</div>
+                            <div className="text-white/20 mb-3 font-mono text-[8px] tracking-[0.4em]">PLAZO ESTIMADO</div>
+                            <div className={`text-sm font-light italic tracking-tight ${serviceId ? "text-white/80" : "text-white/10"}`}>{activeService?.time || '---'}</div>
                         </div>
-                        <div>
-                            <div className="text-white/40 mb-2">PRESUPUESTO CALC.</div>
-                            <div className="text-2xl font-black text-studio tracking-tight">
+                        <div className="pt-6 border-t border-studio/5">
+                            <div className="text-white/20 mb-4 font-mono text-[8px] tracking-[0.4em]">INVERSIÓN ESTIMADA (NETO)</div>
+                            <div className="text-3xl font-light italic text-studio tracking-tighter">
                                 ${finalPrice > 0 ? finalPrice.toLocaleString('es-CL') : '0'} CLP
                             </div>
                         </div>

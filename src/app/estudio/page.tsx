@@ -32,7 +32,7 @@ export default function EstudioPage() {
 
 
             {/* 1. MAIN SERVICES SECTION (Parallax Backdrop) */}
-            <section className="relative w-full min-h-screen pt-24 pb-32 px-6 overflow-hidden">
+            <section className="relative w-full pt-16 pb-20 px-6 overflow-hidden">
                 {/* Parallax Background - Fixed and Ambient */}
                 <div className="fixed inset-0 z-0 pointer-events-none">
                     <LayeredParallaxStudio />
@@ -45,7 +45,7 @@ export default function EstudioPage() {
                     <m.div
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="flex items-center gap-6 mb-20 font-mono uppercase tracking-[0.5em] text-[9px]"
+                        className="flex items-center gap-6 mb-8 font-mono uppercase tracking-[0.5em] text-[9px]"
                     >
                         <div className="flex items-center gap-3 bg-studio/[0.03] backdrop-blur-3xl border border-studio/20 px-5 py-2 rounded-full shadow-2xl">
                             <span className="relative flex h-1.5 w-1.5">
@@ -59,18 +59,23 @@ export default function EstudioPage() {
                     </m.div>
 
                     {/* Impactful Services Header */}
-                    <div className="text-center mb-24 space-y-8">
+                    <div className="text-center mb-12 space-y-4">
                         <m.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                            initial={{ opacity: 0, scale: 0.98 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
                         >
-                            <h1 className="text-5xl md:text-8xl lg:text-[10rem] font-medium tracking-tight text-white leading-[0.85] flex flex-col items-center">
-                                <span className="opacity-90">Bespoke Architecture</span>
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-studio/60 via-studio to-studio/30 font-light italic tracking-normal lowercase mt-2 pb-6 px-12">
-                                     of digital luxury
-                                 </span>
-                            </h1>
+                            <div className="relative">
+                                {/* Subtle glow to lift text from the painting background without a shadow */}
+                                <div className="absolute inset-0 bg-black/40 blur-[100px] rounded-full scale-150 pointer-events-none" />
+                                <h1 className="relative text-4xl md:text-6xl lg:text-[7rem] font-medium tracking-tight text-white leading-[0.8] flex flex-col items-center">
+                                    <span className="opacity-90">Acompañamos</span>
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-studio via-studio to-studio/80 font-light italic tracking-normal lowercase mt-1 pb-4 px-12 text-center">
+                                         tu visión con excelencia
+                                     </span>
+                                </h1>
+                            </div>
+                            {/* Removed Scroll Indicator for Ultra-Compactness */}
                         </m.div>
                         
                         <m.p 
@@ -83,14 +88,6 @@ export default function EstudioPage() {
                             ingeniería de precisión y el diseño atemporal.
                         </m.p>
 
-                        <m.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.8 }}
-                            className="flex justify-center pt-8"
-                        >
-                            <div className="w-[1px] h-12 bg-gradient-to-b from-white/0 via-white/40 to-white/0" />
-                        </m.div>
                     </div>
 
                     {/* Services Grid */}
@@ -117,52 +114,53 @@ export default function EstudioPage() {
             <section className="relative z-30 py-32 px-6 bg-[#050505]/95 backdrop-blur-3xl border-y border-white/5 shadow-[0_-50px_100px_rgba(0,0,0,0.8)]">
                 <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-20 items-center">
 
-                    <div className="flex-1 text-left space-y-8">
-                        <div className="flex items-center gap-3 text-studio/60 font-mono text-[9px] tracking-[0.6em] uppercase">
-                            Consultoría Privada
+                    <div className="flex-1 text-left space-y-10">
+                        <div className="flex items-center gap-4 text-studio/60 font-mono text-[9px] tracking-[0.6em] uppercase">
+                            <div className="w-8 h-[1px] bg-studio/30" />
+                            Protocolo de Apertura
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-light italic tracking-tight text-white/90 leading-tight">
-                            Elevando su visión a un <br className="hidden md:block" /> estándar superior.
+                        <h2 className="text-5xl md:text-7xl font-light italic tracking-tight text-white/95 leading-[1.1]">
+                            Demos vida a su <br className="hidden md:block" /> próximo legado.
                         </h2>
-                        <p className="text-white/30 max-w-sm font-sans text-sm tracking-wide leading-relaxed font-light italic">
+                        <p className="text-white/40 max-w-md font-sans text-base tracking-wide leading-relaxed font-light italic">
                             Un enfoque de guante blanco para el desarrollo de software. <br />
-                            Discreción, excelencia técnica y un compromiso inquebrantable con la calidad.
+                            Discreción absoluta, excelencia técnica sin concesiones y un compromiso inquebrantable con la estética funcional.
                         </p>
 
-                        <div className="flex gap-10 pt-8 font-mono text-[10px] uppercase tracking-[0.2em] text-white/30">
-                            <div className="flex flex-col gap-2">
-                                <span className="text-white text-2xl font-black">24-48H</span>
-                                <span>Tiempo de Respuesta</span>
+                        <div className="flex gap-12 pt-10 font-mono text-[9px] uppercase tracking-[0.3em] text-white/20">
+                            <div className="flex flex-col gap-3">
+                                <span className="text-studio text-2xl font-light italic">24h</span>
+                                <span>Respuesta Directa</span>
                             </div>
-                            <div className="w-[1px] h-14 bg-white/10" />
-                            <div className="flex flex-col gap-2">
-                                <span className="text-white text-2xl font-black">GMT-3</span>
-                                <span>Basado en Chile</span>
+                            <div className="w-[1px] h-16 bg-white/5" />
+                            <div className="flex flex-col gap-3">
+                                <span className="text-studio text-2xl font-light italic">CL</span>
+                                <span>Operación Global</span>
                             </div>
                         </div>
                     </div>
 
-                    <div className="flex-1 w-full flex flex-col gap-6">
+                    <div className="flex-1 w-full flex flex-col gap-8">
                          <MagneticButton
                             onClick={() => handleOpenConfigurator()}
-                            className="w-full bg-studio text-black hover:bg-white p-8 flex justify-between items-center group transition-all duration-700 rounded-none shadow-2xl"
+                            className="w-full bg-studio text-black hover:bg-white p-10 flex justify-between items-center group transition-all duration-1000 rounded-none shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
                         >
                             <div className="text-left">
-                                <span className="block text-[10px] font-mono uppercase tracking-[0.3em] opacity-40 mb-2">Comisionar Proyecto</span>
-                                <span className="text-xl font-light italic tracking-tight group-hover:tracking-wider transition-all">Iniciar Brief de Lujo</span>
+                                <span className="block text-[9px] font-mono uppercase tracking-[0.4em] opacity-50 mb-3">Declaración de Intenciones</span>
+                                <span className="text-2xl font-light italic tracking-tight group-hover:tracking-widest transition-all">Comisionar Proyecto</span>
                             </div>
-                            <div className="w-12 h-[1px] bg-black/20 group-hover:w-16 transition-all duration-700" />
+                            <div className="w-16 h-[1px] bg-black/20 group-hover:w-24 transition-all duration-1000" />
                         </MagneticButton>
 
                         <MagneticButton
                             onClick={() => window.open('https://calendly.com', '_blank')}
-                            className="w-full bg-white/0 border border-white/5 hover:border-studio/20 p-8 flex justify-between items-center group transition-all duration-700 rounded-none"
+                            className="w-full bg-transparent border border-white/5 hover:border-studio/30 p-10 flex justify-between items-center group transition-all duration-1000 rounded-none"
                         >
                             <div className="text-left">
-                                <span className="block text-[10px] font-mono uppercase tracking-[0.3em] opacity-30 mb-2">Private Session</span>
-                                <span className="text-xl font-light italic tracking-tight group-hover:tracking-wider transition-all text-white/80">Agendar Protocolo</span>
+                                <span className="block text-[9px] font-mono uppercase tracking-[0.4em] opacity-30 mb-3">Sesión de Descubrimiento</span>
+                                <span className="text-2xl font-light italic tracking-tight group-hover:tracking-widest transition-all text-white/80">Agendar Sesión Privada</span>
                             </div>
-                            <Calendar className="group-hover:translate-x-2 transition-transform duration-700 opacity-20" size={24} strokeWidth={1} />
+                            <Calendar className="group-hover:translate-x-3 transition-transform duration-1000 opacity-20" size={28} strokeWidth={0.5} />
                         </MagneticButton>
                     </div>
 
