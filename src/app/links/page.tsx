@@ -1,98 +1,87 @@
 "use client";
 
 import React from 'react';
-import { m } from 'framer-motion';
-import { GlobalHUD } from '@/components/ui/GlobalHUD';
-import { TelemetryPanel } from '@/components/studio/TelemetryPanel';
 import { DIRECTORY_LINKS } from '@/constants/directoryData';
 import { LinkCard } from '@/components/links/LinkCard';
 import { ProfileHeader } from '@/components/links/ProfileHeader';
-import { StudioFooter } from '@/components/studio/StudioFooter';
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.4
-    }
-  }
-};
 
 export default function LinksPage() {
     return (
-        <main className="min-h-screen bg-[#050505] text-white selection:bg-studio/30 font-sans relative flex flex-col items-center justify-between pb-12 overflow-x-hidden">
-            {/* Ambient Background Structure */}
-            <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,rgba(197,160,89,0.03),transparent_70%)] animate-pulse transition-all duration-10000" />
-            </div>
+        <main className="min-h-screen bg-slate-50 relative text-slate-900 font-sans antialiased p-4 sm:p-6 md:py-12 flex flex-col items-center selection:bg-blue-100 overflow-x-hidden">
+            {/* Background ambient glow setup */}
+            <div className="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-b from-blue-50/50 to-transparent pointer-events-none -z-10" />
 
-            {/* CONTENT AREA */}
-            <div className="relative z-10 w-full max-w-xl mx-auto flex flex-col gap-10 py-12">
+            {/* Main Central Column (Boutique Card Style) */}
+            <div className="w-full max-w-2xl mx-auto bg-white rounded-[24px] sm:rounded-[32px] border border-slate-200/80 shadow-[0_8px_30px_rgba(0,0,0,0.04)] sm:shadow-[0_20px_60px_rgba(0,0,0,0.06)] transition-shadow duration-500 overflow-hidden flex flex-col relative z-10">
+                
+                {/* Profile Banner and Bio */}
                 <ProfileHeader />
 
-                {/* LINKS LISTING BY CATEGORIES */}
-                <div className="flex flex-col border-y border-white/5 bg-black/50 backdrop-blur-2xl transition-all duration-1000">
-                    <div className="px-10 py-5 border-b border-white/5 flex items-center justify-between font-mono text-[8px] uppercase tracking-[0.5em] text-white/10">
-                        <span>Directorio Privado</span>
-                        <span>v1.0.5</span>
-                    </div>
-
-                    {/* PRIMARY SECTION */}
-                    <div className="pt-2">
+                {/* Directory Content Area */}
+                <div className="flex flex-col">
+                    
+                    {/* Primary/Featured Section */}
+                    <div className="pt-4 sm:pt-6 px-3 sm:px-5 pb-4 sm:pb-5 flex flex-col gap-3 sm:gap-4">
                         {DIRECTORY_LINKS.filter(l => l.category === 'primary').map((link, i) => (
                             <LinkCard key={link.id} {...link} index={i} />
                         ))}
                     </div>
 
-                    {/* SOCIALS SECTION */}
-                    <div className="border-t border-white/5 mt-4">
-                        <div className="px-10 py-4 text-[7px] uppercase font-mono tracking-[0.6em] text-studio/30 flex items-center gap-4">
-                            Social Connect
-                            <div className="flex-grow h-[1px] bg-white/5" />
+                    {/* Technical / Professional Section */}
+                    <div className="mt-2 sm:mt-4 border-t border-slate-100/80">
+                        <div className="px-5 sm:px-7 pt-5 sm:pt-6 pb-3 flex items-center justify-between">
+                            <h2 className="text-[11px] sm:text-[12px] font-bold uppercase tracking-widest text-slate-500">
+                                Credenciales & Verificación
+                            </h2>
                         </div>
-                        {DIRECTORY_LINKS.filter(l => l.category === 'social').map((link, i) => (
-                            <LinkCard key={link.id} {...link} index={i + 2} />
-                        ))}
+                        <div className="flex flex-col gap-3 sm:gap-4 px-3 sm:px-5 pb-4 sm:pb-5">
+                            {DIRECTORY_LINKS.filter(l => l.category === 'professional').map((link, i) => (
+                                <LinkCard key={link.id} {...link} index={i + 2} />
+                            ))}
+                        </div>
                     </div>
 
-                    {/* PROFESSIONAL SECTION */}
-                    <div className="border-t border-white/5 mt-4">
-                        <div className="px-10 py-4 text-[7px] uppercase font-mono tracking-[0.6em] text-studio/30 flex items-center gap-4">
-                            Technical Verification
-                            <div className="flex-grow h-[1px] bg-white/5" />
+                    {/* Social Section */}
+                    <div className="mt-1 border-t border-slate-100/80">
+                        <div className="px-5 sm:px-7 pt-5 sm:pt-6 pb-3 flex items-center justify-between">
+                            <h2 className="text-[11px] sm:text-[12px] font-bold uppercase tracking-widest text-slate-500">
+                                Conexión Social
+                            </h2>
                         </div>
-                        {DIRECTORY_LINKS.filter(l => l.category === 'professional').map((link, i) => (
-                            <LinkCard key={link.id} {...link} index={i + 5} />
-                        ))}
+                        <div className="flex flex-col gap-3 sm:gap-4 px-3 sm:px-5 pb-4 sm:pb-5">
+                            {DIRECTORY_LINKS.filter(l => l.category === 'social').map((link, i) => (
+                                <LinkCard key={link.id} {...link} index={i + 4} />
+                            ))}
+                        </div>
                     </div>
 
-                    {/* CONTACT SECTION */}
-                    <div className="border-t border-white/5 mt-4">
-                        <div className="px-10 py-4 text-[7px] uppercase font-mono tracking-[0.6em] text-studio/30 flex items-center gap-4">
-                            Direct Liaison
-                            <div className="flex-grow h-[1px] bg-white/5" />
+                    {/* Direct Contact Section */}
+                    <div className="mt-1 border-t border-slate-100/80">
+                        <div className="px-5 sm:px-7 pt-5 sm:pt-6 pb-3 flex items-center justify-between">
+                            <h2 className="text-[11px] sm:text-[12px] font-bold uppercase tracking-widest text-slate-500">
+                                Contacto Directo
+                            </h2>
                         </div>
-                        {DIRECTORY_LINKS.filter(l => l.category === 'contact').map((link, i) => (
-                            <LinkCard key={link.id} {...link} index={i + 7} />
-                        ))}
+                        <div className="flex flex-col gap-3 sm:gap-4 px-3 sm:px-5 pb-4 sm:pb-6">
+                            {DIRECTORY_LINKS.filter(l => l.category === 'contact').map((link, i) => (
+                                <LinkCard key={link.id} {...link} index={i + 7} />
+                            ))}
+                        </div>
                     </div>
 
-                    <div className="px-10 py-8 flex flex-col gap-4 font-mono text-[8px] uppercase tracking-[0.5em] text-white/10 text-center bg-white/[0.01]">
-                        <div className="flex items-center justify-center gap-4 opacity-50">
-                            SANTIAGO, CHILE // OPS CENTER
-                        </div>
-                    </div>
                 </div>
 
-                {/* MINIMAL FOOTER */}
-                <div className="flex flex-col items-center gap-8 py-12 text-center">
-                    <div className="h-[1px] w-12 bg-studio/20" />
-                    <p className="text-[9px] font-mono tracking-[0.4em] text-white/20 uppercase">
-                        © {new Date().getFullYear()} Alex Silva // Digital Architect
+                {/* Footer of the column */}
+                <div className="px-6 py-10 bg-slate-50 flex flex-col items-center justify-center border-t border-slate-200 mt-auto">
+                    <p className="text-[13px] sm:text-sm font-medium text-slate-500 mb-1.5">
+                        © {new Date().getFullYear()} Alex Silva System
+                    </p>
+                    <p className="text-[11px] sm:text-[12px] text-slate-400 uppercase tracking-widest font-semibold flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)] animate-pulse" />
+                        Santiago, Chile // 2026
                     </p>
                 </div>
+
             </div>
         </main>
     );

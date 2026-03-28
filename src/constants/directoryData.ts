@@ -13,8 +13,8 @@ export interface DirectoryLink {
 export const DIRECTORY_LINKS: DirectoryLink[] = [
     {
         id: 'portfolio',
-        title: 'Portfolio Principal',
-        description: 'Explora mis proyectos y trayectoria completa.',
+        title: 'Proyectos y Casos de Éxito',
+        description: 'Explora soluciones implementadas y trayectoria técnica.',
         url: '/',
         icon: Globe,
         priority: true,
@@ -22,8 +22,8 @@ export const DIRECTORY_LINKS: DirectoryLink[] = [
     },
     {
         id: 'estudio',
-        title: 'Bespoke Studio',
-        description: 'Cotiza servicios exclusivos de ingeniería y diseño.',
+        title: 'Consultoría de Desarrollo a Medida',
+        description: 'Diseño de software exclusivo para necesidades específicas de negocio.',
         url: '/estudio',
         icon: ShieldCheck,
         priority: true,
@@ -55,8 +55,8 @@ export const DIRECTORY_LINKS: DirectoryLink[] = [
     },
     {
         id: 'certifications',
-        title: 'Credenciales Técnicas',
-        description: 'Certificaciones Platzi & Fundación Telefónica.',
+        title: 'Certificaciones y Respaldo Académico',
+        description: 'Validación profesional por Platzi, Fundación Telefónica y USACH.',
         url: '/#credentials',
         icon: Monitor,
         category: 'professional'
@@ -64,7 +64,7 @@ export const DIRECTORY_LINKS: DirectoryLink[] = [
     {
         id: 'whatsapp',
         title: 'WhatsApp Directo',
-        description: 'Hablemos sobre tu próximo legado digital.',
+        description: 'Coordinemos una breve reunión para analizar tu proyecto.',
         url: 'https://wa.me/your-number', // Placeholder
         icon: MessageSquare,
         category: 'contact'
