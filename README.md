@@ -91,5 +91,5 @@ To deploy this architecture locally:
 
 ---
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Plumavit-y/alex-silva-portfolio/main/public/logo.png" width="100" alt="ALX Logo" />
+  <img src="https://raw.githubusercontent.com/Plumavit-y/alex-silva-portfolio/main/public/images/profile/alex-silva.webp" width="100" alt="ALX Logo" />
 </p>
