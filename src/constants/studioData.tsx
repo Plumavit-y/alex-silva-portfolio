@@ -1,7 +1,24 @@
-import { Globe, Bot, Zap, Server, Rocket, Lightbulb } from 'lucide-react';
+import { Globe, Bot, Zap, Server, Rocket, Lightbulb, Mail } from 'lucide-react';
 import { StudioService } from '@/types';
 
 export const STUDIO_SERVICES: StudioService[] = [
+    {
+        id: 'emails',
+        icon: <Mail size={24} />,
+        title: "Instalación de Correos Corporativos",
+        subtitle: "Comunicaciones empresariales confiables y listas para usarse.",
+        stack: ["Google Workspace", "Microsoft 365", "DNS", "Seguridad DMARC"],
+        price: "Inversión desde $-- CLP",
+        basePrice: 0,
+        time: "1-3 Semanas",
+        features: [
+            "Configuración de Servidores MX de Alta Entrega",
+            "Migración Completa de Cuentas / Bandejas Antiguas",
+            "Dominio Personalizado Corporativo",
+            "Protección Antispam, SPF, DKIM y DMARC"
+        ],
+        isLocked: false
+    },
     {
         id: 'web',
         icon: <Globe size={24} />,
@@ -16,7 +33,8 @@ export const STUDIO_SERVICES: StudioService[] = [
             "Optimización para buscadores de élite",
             "Paneles de Control Intuitivos",
             "Infraestructura de Despliegue Robusta"
-        ]
+        ],
+        isLocked: true
     },
     {
         id: 'ai',
@@ -32,7 +50,8 @@ export const STUDIO_SERVICES: StudioService[] = [
             "Arquitecturas RAG Especializadas",
             "Automatización de Flujos Cognitivos",
             "Optimización de Precisión y Costos"
-        ]
+        ],
+        isLocked: true
     },
     {
         id: 'api',
@@ -48,7 +67,8 @@ export const STUDIO_SERVICES: StudioService[] = [
             "Seguridad y Cifrado de Grado Militar",
             "Sistemas de Caché de Alta Velocidad",
             "Documentación Técnica Técnica Exhaustiva"
-        ]
+        ],
+        isLocked: true
     },
     {
         id: 'server',
@@ -64,7 +84,8 @@ export const STUDIO_SERVICES: StudioService[] = [
             "Automatización de Integración Continua",
             "Blindaje de Seguridad SSL/TLS",
             "Monitorización Predictiva"
-        ]
+        ],
+        isLocked: true
     },
     {
         id: 'mvp',
@@ -80,7 +101,8 @@ export const STUDIO_SERVICES: StudioService[] = [
             "Gestión de Identidad y Pagos",
             "App core optimizada para inversores",
             "Analítica de Comportamiento Integrada"
-        ]
+        ],
+        isLocked: true
     },
     {
         id: 'consulting',
@@ -96,6 +118,7 @@ export const STUDIO_SERVICES: StudioService[] = [
             "Selección de Stack Estratégico",
             "Mentoring de Ingeniería Avanzada",
             "Planificación de Escalabilidad"
-        ]
+        ],
+        isLocked: true
     }
 ];

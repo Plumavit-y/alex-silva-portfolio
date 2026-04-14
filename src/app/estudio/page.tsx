@@ -90,7 +90,44 @@ export default function EstudioPage() {
 
                     </div>
 
-                    {/* Services Grid */}
+                    {/* Exclusives / Ads Banner */}
+                    <m.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="w-full max-w-7xl mx-auto mb-20 relative group"
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-r from-studio/10 via-transparent to-studio/10 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 blur-xl pointer-events-none" />
+                        <div className="flex flex-col md:flex-row items-center justify-between p-6 md:p-8 rounded-2xl border border-white/5 bg-[#0A0A0A]/50 backdrop-blur-md relative overflow-hidden hover:border-studio/20 transition-colors duration-700">
+                            <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-studio/30 to-transparent opacity-50" />
+                            <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-studio/10 to-transparent opacity-30" />
+                            
+                            <div className="flex flex-col gap-3 relative z-10 text-center md:text-left mb-8 md:mb-0">
+                                <div className="flex items-center justify-center md:justify-start gap-3">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-studio animate-pulse" />
+                                    <span className="text-[9px] font-mono tracking-[0.4em] uppercase text-studio">Acceso Prioritario</span>
+                                </div>
+                                <h3 className="text-2xl md:text-3xl font-light italic tracking-tight text-white/95">
+                                    Instalación de Correos Corporativos
+                                </h3>
+                                <p className="text-sm md:text-base font-light text-white/40 max-w-xl leading-relaxed">
+                                    Asegura la legitimidad de tu empresa con correos oficiales. Aprovecha una tarifa fundacional temporal antes del despliegue total del estudio.
+                                </p>
+                            </div>
+                            <div className="relative z-10 shrink-0 w-full md:w-auto">
+                                <MagneticButton
+                                    onClick={() => handleOpenConfigurator('emails')}
+                                    className="w-full md:w-auto bg-white/5 text-white border border-white/10 hover:bg-studio hover:border-studio hover:text-black px-8 py-4 flex items-center justify-center gap-3 transition-all duration-500 rounded-none group/btn"
+                                >
+                                    <span className="text-[10px] font-mono uppercase tracking-[0.2em]">Comisionar Correos</span>
+                                    <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
+                                </MagneticButton>
+                            </div>
+                        </div>
+                    </m.div>
+
+                    {/* Unified Services Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 w-full">
                         {STUDIO_SERVICES.map((service, i) => (
                             <m.div
@@ -107,6 +144,8 @@ export default function EstudioPage() {
                             </m.div>
                         ))}
                     </div>
+
+
                 </div>
             </section>
 

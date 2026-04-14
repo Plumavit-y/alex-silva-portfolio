@@ -47,5 +47,6 @@ export interface StudioService {
     basePrice: number;
     time: string;
     features: string[];
+    isLocked?: boolean;
 }
 

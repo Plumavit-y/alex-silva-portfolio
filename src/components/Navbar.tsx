@@ -77,7 +77,7 @@ export const Navbar = () => {
         };
     }, []);
 
-    if (pathname?.startsWith('/estudio') || pathname?.startsWith('/links')) return null;
+    if (pathname?.startsWith('/estudio') || pathname?.startsWith('/links') || pathname?.startsWith('/correos')) return null;
 
     return (
         <>
